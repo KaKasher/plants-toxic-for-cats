@@ -21,7 +21,7 @@ Download the dataset and get more info on [Kaggle](https://www.kaggle.com/datase
 * train_loss: 0.29411
 * test_loss: 0.47510
 
-[Losses_plot](https://github.com/KaKasher/plants-toxic-for-cats/blob/main/models/plots/plantnet_finetuned_resnet34_v5_losses_plot.png?raw=true)
+![Losses_plot](https://github.com/KaKasher/plants-toxic-for-cats/blob/main/models/plots/plantnet_finetuned_resnet34_v5_losses_plot.png?raw=true)
 
 ## TODO
 
