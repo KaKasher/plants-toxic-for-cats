@@ -1,0 +1,10 @@
+/data/*
+/models/inception_v3_weights_best_acc.tar
+/models/plantnet_resnet34_best.tar
+/src/data/work_dir/
+/to-uninstall.txt
+/.venv/
+/.idea/
+**/__pycache__/
+
+!/data/place_dataset_here.txt
