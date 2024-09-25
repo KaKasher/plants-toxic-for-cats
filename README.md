@@ -15,13 +15,15 @@ Download the dataset and get more info on [Kaggle](https://www.kaggle.com/datase
 ## 🚀 Current Status: Work in Progress
 - Working on: Hyperparameter tuning
 
-## Best Results (as of 05.09.24)
-* balanced_accuracy: 0.85239
-* macro_f1: 0.85051
-* train_loss: 0.29411
-* test_loss: 0.47510
+## Best Results (as of 25.09.24)
+* architecture: vit-base-patch16-224 | 25 epochs | 0.001 lr | 256 batch size | adamW optimizer
+* balanced_accuracy: 0.93976
+* macro_f1: 0.94438
+* top3_accuracy: 0.98789
+* train_loss: 0.04805
+* test_loss: 0.18520
 
-![Losses_plot](https://github.com/KaKasher/plants-toxic-for-cats/blob/main/models/plots/plantnet_finetuned_resnet34_v5_losses_plot.png?raw=true)
+![Losses_plot](https://github.com/KaKasher/plants-toxic-for-cats/blob/main/models/plots/vit_b16_224_25e_256bs_0.001lr_adamW_transforms_plot.png?raw=true)
 
 ## TODO
 
