@@ -13,7 +13,7 @@ Download the dataset and get more info on [Kaggle](https://www.kaggle.com/datase
 **Note:** The current dataset is for personal use only due to copyright considerations.
 
 ## 🚀 Current Status: Work in Progress
-- Working on: Hyperparameter tuning
+- Working on: Model Deployment
 
 ## Best Results (as of 25.09.24)
 * architecture: vit-base-patch16-224 | 25 epochs | 0.001 lr | 256 batch size | adamW optimizer
@@ -27,10 +27,8 @@ Download the dataset and get more info on [Kaggle](https://www.kaggle.com/datase
 
 ## TODO
 
-- Complete hyperparameter tuning
-- Try some new experiments
-- Create descriptions and categorization for toxic and non-toxic plants
-- Host model on hugging face
+- Deploy model on hugging face
+- Write a walktrough notebook
 
 
 ## Acknowledgements
