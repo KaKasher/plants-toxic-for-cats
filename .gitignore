@@ -7,4 +7,9 @@
 /.idea/
 **/__pycache__/
 
+
 !/data/place_dataset_here.txt
+/models/vit_base_patch16_224_weights_best_acc.tar
+/models/efficientnet_b4_weights_best_acc.tar
+/models/resnet152_weights_best_acc.tar
+/models/vit_b16_224_25e_256bs_0.001lr_adamW_transforms.tar

@@ -1,15 +1,15 @@
-Download same plants but with olx added (around 100)
-Clean them (software + by hand)
-Split for test set (75/25)
-Combine with older plants and check for duplicates
-Run the training
-???? (try to further improve the model)
-Choose the best model and make final predictions on the test set
-Create a json categorizing plants as toxic/not-toxic
-Upload dataset to kaggle
+OK Download same plants but with olx added (around 100)
+OK Clean them (software + by hand)
+OK Split for test set (75/25)
+OK Combine with older plants and check for duplicates
+OK Run the training
+OK ???? (try to further improve the model)
+OK Choose the best model and make final predictions on the test set
+OK Create a json categorizing plants as toxic/not-toxic
+OK Upload dataset to kaggle
 Upload model to huggingface
-Write a notebook/medium post documenting the project
+Write a notebook documenting the project
 .
 .
 .
-Make a website
+Make a website (maybe)
