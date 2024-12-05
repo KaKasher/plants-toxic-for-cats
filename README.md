@@ -8,6 +8,8 @@ Try it out in action on [🤗 Spaces](https://huggingface.co/spaces/kakasher/Cat
 
 If you want to learn more about how this project works you can check out the [walkthrough](https://www.kaggle.com/code/kacpergregorowicz/cat-safe-plant-classifier-walkthrough)
 
+You can visualise the model using [Netron.app](https://netron.app/?url=https://huggingface.co/kakasher/cat-safe-plant-classifier-vitb16-224/resolve/main/plant-classifier-vitb32.onnx)
+
 ## 📊 Dataset
 
 The dataset consists of 14,790 images across 47 plant species classes. Images sourced from web scraping (Bing Images) and then manualy curated by me.
