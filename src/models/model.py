@@ -23,6 +23,7 @@ def setup_model(num_new_classes, model_name="resnet152"):
         plantnet_model = timm.create_model('efficientnet_b4', pretrained=True, num_classes=1081)
         load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
 
+
         for param in plantnet_model.parameters():
             param.requires_grad = False
 
