@@ -12,11 +12,11 @@ A deep learning system that identifies 47 houseplant species and warns cat owner
 
 | Metric | Value |
 |--------|-------|
-| Total Images | 14,442 |
+| Total Images | 14,774 |
 | Classes | 47 plant species |
-| Train/Test Split | 11,532 / 2,910 (80/20) |
-| Largest Class | Monstera Deliciosa (540) |
-| Smallest Class | Yucca (64) |
+| Train/Test Split | 11,819 / 2,955 (80/20) |
+| Largest Class | Monstera Deliciosa (547) |
+| Smallest Class | Yucca (66) |
 
 Images were web-scraped from Bing, cleaned with [fastdup](https://github.com/visual-layer/fastdup), and manually curated.
 
