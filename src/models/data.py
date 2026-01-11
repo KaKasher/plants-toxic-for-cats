@@ -19,7 +19,7 @@ def get_species_names(train_path):
     return sorted(new_species_names)
 
 def setup_data(batch_size=32):
-    data_path = Path("/home/kaka/repo/plants-toxic-for-cats/data/train_test")
+    data_path = Path("../../data/train_test")
     train_path = data_path / "train"
     test_path = data_path / "test"
 
@@ -40,7 +40,7 @@ def setup_data(batch_size=32):
         ToTensorV2()
     ])
 
-    train_dataset = ImageFolder(train_path, transform=TransformsWrapper(transforms=test_transform))
+    train_dataset = ImageFolder(train_path, transform=TransformsWrapper(transforms=train_transform))
     test_dataset = ImageFolder(test_path, transform=TransformsWrapper(transforms=test_transform))
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)

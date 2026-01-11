@@ -3,7 +3,7 @@ from tqdm import tqdm
 from torch.cuda.amp import autocast, GradScaler
 from torch.optim.lr_scheduler import StepLR
 
-def train_test_loop(model, train_loader, test_loader, criterion, device, writer, num_epochs=10, learning_rate=0.001, patience=5):
+def train_test_loop(model, train_loader, test_loader, criterion, device, writer, num_epochs=10, learning_rate=0.001, patience=5, class_weights=None):
     model.to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 

@@ -219,3 +219,19 @@ def get_data(root, image_size, crop_size, batch_size, num_workers, pretrained):
                           'class_to_idx': trainset.class_to_idx}
 
     return trainloader, valloader, testloader, dataset_attributes
+
+def calculate_class_weights(dataset):
+    """
+    Calculates class weights based on the inverse frequency of classes in the dataset.
+    This helps to mitigate class imbalance during training.
+    """
+    targets = dataset.targets
+    class_counts = Counter(targets)
+    total_samples = len(targets)
+    num_classes = len(class_counts)
+    
+    weights = []
+    for i in range(num_classes):
+        weights.append(total_samples / (num_classes * class_counts[i]))
+        
+    return torch.tensor(weights, dtype=torch.float32)

@@ -11,28 +11,27 @@ def setup_model(num_new_classes, model_name="resnet152"):
     if model_name == "resnet152":
         plantnet_model_path = models_folder / "resnet152_weights_best_acc.tar"
         plantnet_model = resnet152(num_classes=1081)
-        load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
+        
+        if plantnet_model_path.exists():
+            print(f"Loading weights from {plantnet_model_path}")
+            load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
+        else:
+            print(f"Weights not found at {plantnet_model_path}, starting with standard initialization.")
 
         for param in plantnet_model.parameters():
             param.requires_grad = False
 
         num_features = plantnet_model.fc.in_features
         plantnet_model.fc = nn.Linear(num_features, num_new_classes)
-    elif model_name == "efficientnet_b4":
-        plantnet_model_path = models_folder / "efficientnet_b4_weights_best_acc.tar"
-        plantnet_model = timm.create_model('efficientnet_b4', pretrained=True, num_classes=1081)
-        load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
-
-
-        for param in plantnet_model.parameters():
-            param.requires_grad = False
-
-        num_features = plantnet_model.classifier.in_features
-        plantnet_model.classifier = nn.Linear(num_features, num_new_classes)
     elif model_name == "vit_b16_224":
         plantnet_model_path = models_folder / "vit_base_patch16_224_weights_best_acc.tar"
         plantnet_model = timm.create_model('vit_base_patch16_224', pretrained=True, num_classes=1081)
-        load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
+        
+        if plantnet_model_path.exists():
+            print(f"Loading weights from {plantnet_model_path}")
+            load_model(plantnet_model, filename=plantnet_model_path, use_gpu=True)
+        else:
+            print(f"Weights not found at {plantnet_model_path}, using ImageNet weights.")
 
         for param in plantnet_model.parameters():
              param.requires_grad = False

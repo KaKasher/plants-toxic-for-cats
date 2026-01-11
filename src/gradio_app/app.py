@@ -64,6 +64,12 @@ def classify_image(input_image):
         with torch.inference_mode():
             output = model(input_tensor)
             predictions = torch.nn.functional.softmax(output[0], dim=0)
+            
+            # Confidence Thresholding
+            top_prob, top_idx = torch.max(predictions, dim=0)
+            if top_prob.item() < 0.6:
+                return {"Unknown Species": 0.0}, "### Low Confidence\n\nThe model is not confident enough to classify this image.\n\nIt might be an out-of-distribution image (not a plant) or a plant species not included in the dataset."
+
             confidences = {idx_to_class[str(i)]: float(predictions[i]) for i in range(47)}
 
         # Sort confidences and get top 3

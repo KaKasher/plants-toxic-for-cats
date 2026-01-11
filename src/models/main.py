@@ -14,7 +14,7 @@ def parse_args():
     parser.add_argument("--epochs", type=int, default=30, help="Number of epochs to train")
     parser.add_argument("--batch_size", type=int, default=32, help="Batch size for training")
     parser.add_argument("--lr", type=float, default=0.001, help="Learning rate for optimizer")
-    parser.add_argument("--model_name", type=str, default="resnet152", help="Choose from 'resnet152', 'efficientnet_b4', 'vit_b16_224'")
+    parser.add_argument("--model_name", type=str, default="resnet152", help="Choose from 'resnet152', 'vit_b16_224'")
     return parser.parse_args()
 
 def save_losses(train_losses, test_losses, filename):
@@ -53,17 +53,27 @@ def main():
     plantnet_model = setup_model(num_classes, model_name=args.model_name)
     train_loader, test_loader = setup_data(batch_size=args.batch_size)
 
-    criterion = torch.nn.CrossEntropyLoss()
+    # Calculate class weights for imbalance handling
+    from utils import calculate_class_weights
+    # Access the underlying dataset from the loader
+    train_dataset = train_loader.dataset
+    class_weights = calculate_class_weights(train_dataset)
+    class_weights = class_weights.to(device)
+
+    if class_weights is not None:
+        criterion = torch.nn.CrossEntropyLoss(weight=class_weights)
+    else:
+        criterion = torch.nn.CrossEntropyLoss()
 
     # Setup tenorboard
     models_folder = Path("../../models")
-    model_name = f"{args.model_name}_{args.epochs}e_{args.batch_size}bs_{args.lr}lr_adamW_hflip"
+    model_name = f"{args.model_name}_{args.epochs}e_{args.batch_size}bs_{args.lr}lr_adamW_hflip_weighted"
     tensorboard_dir = models_folder / "tensorboard" / model_name
     writer = SummaryWriter(log_dir=tensorboard_dir)
 
     # Train the model
     train_losses, test_losses = train_test_loop(plantnet_model, train_loader, test_loader, criterion, device, writer,
-                                                args.epochs, args.lr)
+                                                args.epochs, args.lr, class_weights=class_weights)
 
     writer.close()
 

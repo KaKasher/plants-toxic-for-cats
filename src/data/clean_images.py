@@ -64,7 +64,6 @@ def clean_images(input_dir):
 
     outlier_df = fd.outliers()
     list_of_outliers = outlier_df['filename_outlier'].to_list()
-   # remove_images(list_of_outliers)
 
 
 def main():
